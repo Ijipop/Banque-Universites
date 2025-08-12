@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>800</height>
+    <width>900</width>
+    <height>840</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,8 +19,8 @@
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>781</width>
-      <height>151</height>
+      <width>881</width>
+      <height>141</height>
      </rect>
     </property>
     <property name="font">
@@ -31,18 +31,18 @@
     <property name="title">
      <string>Sélection avec Listes Dépendantes</string>
     </property>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>10</x>
        <y>20</y>
-       <width>761</width>
-       <height>121</height>
+       <width>861</width>
+       <height>111</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="layout_selection">
       <property name="spacing">
-       <number>0</number>
+       <number>6</number>
       </property>
       <item>
        <layout class="QHBoxLayout" name="layout_combos">
@@ -155,452 +155,13 @@
      </layout>
     </widget>
    </widget>
-   <widget class="QGroupBox" name="groupe_ajout_universite">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>160</y>
-      <width>781</width>
-      <height>151</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="title">
-     <string>Ajout une Université</string>
-    </property>
-    <widget class="QWidget" name="">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>20</y>
-       <width>761</width>
-       <height>121</height>
-      </rect>
-     </property>
-     <layout class="QVBoxLayout" name="layout_ajout_universite">
-      <property name="leftMargin">
-       <number>0</number>
-      </property>
-      <item>
-       <layout class="QHBoxLayout" name="layout_universite">
-        <item>
-         <layout class="QVBoxLayout" name="layout_nom_universite">
-          <item>
-           <widget class="QLabel" name="label_nom_universite">
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="text">
-             <string>Nom de l'université:</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="lineEdit_nom_universite">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="placeholderText">
-             <string>Nom complet de l'université</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QVBoxLayout" name="layout_ville_universite">
-          <item>
-           <widget class="QLabel" name="label_ville_universite">
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="text">
-             <string>Ville de l'université:</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="lineEdit_ville_universite">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="placeholderText">
-             <string>Ville où se trouve l'université</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QVBoxLayout" name="layout_code_universite">
-          <item>
-           <widget class="QLabel" name="label_code_universite">
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="text">
-             <string>Code de l'université:</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="lineEdit_code_universite">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="placeholderText">
-             <string>Code unique</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QVBoxLayout" name="layout_annee_universite">
-          <item>
-           <widget class="QLabel" name="label_annee_universite">
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="text">
-             <string>Année de fondation:</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="lineEdit_annee_universite">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="placeholderText">
-             <string>Année de fondation (optionnel)</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton_AjouterUniversite">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>45</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>Ajouter Université</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-   </widget>
-   <widget class="QGroupBox" name="groupe_ajout_faculte">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>310</y>
-      <width>781</width>
-      <height>211</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="title">
-     <string>Ajout une Faculté</string>
-    </property>
-    <widget class="QWidget" name="">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>30</y>
-       <width>761</width>
-       <height>171</height>
-      </rect>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout">
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout">
-        <item>
-         <layout class="QVBoxLayout" name="layout_nom_faculte">
-          <item>
-           <widget class="QLabel" name="label_nom_faculte">
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="text">
-             <string>Nom de la faculté:</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="lineEdit_nom_faculte">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="placeholderText">
-             <string>Nom complet de la faculté</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QVBoxLayout" name="layout_code_faculte">
-          <item>
-           <widget class="QLabel" name="label_code_faculte">
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="text">
-             <string>Code de la faculté:</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="lineEdit_code_faculte">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="placeholderText">
-             <string>Code unique pour la faculté</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QVBoxLayout" name="layout_nbEtudiants_faculte">
-          <item>
-           <widget class="QLabel" name="label_nbEtudiants_faculte">
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="text">
-             <string>Nombre d'étudiants:</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="lineEditl_nbEtudiants_faculte">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="placeholderText">
-             <string>0</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <layout class="QVBoxLayout" name="layout_universite_faculte">
-        <item>
-         <widget class="QLabel" name="label_universite_faculte">
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>25</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <bold>false</bold>
-           </font>
-          </property>
-          <property name="text">
-           <string>Université:</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QComboBox" name="comboBox_universite_faculte">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>30</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>16777215</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <bold>false</bold>
-           </font>
-          </property>
-          <property name="placeholderText">
-           <string>-- Choisir l'université --</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton_AjouterFaculte">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>45</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>Ajouter Faculté</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-   </widget>
    <widget class="QGroupBox" name="groupe_resultats">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>520</y>
-      <width>781</width>
-      <height>251</height>
+      <y>490</y>
+      <width>881</width>
+      <height>321</height>
      </rect>
     </property>
     <property name="font">
@@ -611,18 +172,18 @@
     <property name="title">
      <string>Informations et Messages</string>
     </property>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>10</x>
        <y>20</y>
-       <width>761</width>
-       <height>221</height>
+       <width>861</width>
+       <height>291</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="layout_resultats">
       <item>
-       <layout class="QHBoxLayout" name="laout_buttons">
+       <layout class="QHBoxLayout" name="layout_buttons">
         <item>
          <widget class="QPushButton" name="pushButton_VoirStats">
           <property name="font">
@@ -650,7 +211,13 @@
        </layout>
       </item>
       <item>
-       <widget class="QTextEdit" name="textEdit_resultats"/>
+       <widget class="QTextEdit" name="textEdit_resultats">
+        <property name="font">
+         <font>
+          <bold>false</bold>
+         </font>
+        </property>
+       </widget>
       </item>
       <item>
        <widget class="QPushButton" name="pushButton_ViderMessages">
@@ -667,13 +234,444 @@
      </layout>
     </widget>
    </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>160</y>
+      <width>881</width>
+      <height>321</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="layout_ajout">
+     <item>
+      <widget class="QGroupBox" name="groupe_ajout_universite">
+       <property name="font">
+        <font>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="title">
+        <string>Ajout une Université</string>
+       </property>
+       <widget class="QWidget" name="layoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>20</y>
+          <width>421</width>
+          <height>287</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="layout_ajout_universite">
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <layout class="QVBoxLayout" name="layout_nom_universite">
+           <item>
+            <widget class="QLabel" name="label_nom_universite">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>25</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>Nom de l'université:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="lineEdit_nom_universite">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="placeholderText">
+              <string>Nom complet de l'université</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="layout_ville_universite">
+           <item>
+            <widget class="QLabel" name="label_ville_universite">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>25</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>Ville de l'université:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="lineEdit_ville_universite">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="placeholderText">
+              <string>Ville où se trouve l'université</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="layout_code_universite">
+           <item>
+            <widget class="QLabel" name="label_code_universite">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>25</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>Code de l'université:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="lineEdit_code_universite">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="placeholderText">
+              <string>Code unique pour l'université</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="layout_annee_universite">
+           <item>
+            <widget class="QLabel" name="label_annee_universite">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>25</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>Année de fondation:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="lineEdit_annee_universite">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="placeholderText">
+              <string>Année de fondation (optionnel)</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_AjouterUniversite">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>45</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Ajouter Université</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="groupe_ajout_faculte">
+       <property name="font">
+        <font>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="title">
+        <string>Ajout une Faculté</string>
+       </property>
+       <widget class="QWidget" name="layoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>20</y>
+          <width>421</width>
+          <height>287</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="layout_ajout_faculte">
+         <item>
+          <layout class="QVBoxLayout" name="layout_nom_faculte">
+           <item>
+            <widget class="QLabel" name="label_nom_faculte">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>25</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>Nom de la faculté:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="lineEdit_nom_faculte">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="placeholderText">
+              <string>Nom complet de la faculté</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="layout_universite_faculte">
+           <item>
+            <widget class="QLabel" name="label_universite_faculte">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>25</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>Université:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="comboBox_universite_faculte">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="placeholderText">
+              <string>-- Choisir l'université --</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="layout_code_faculte">
+           <item>
+            <widget class="QLabel" name="label_code_faculte">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>25</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>Code de la faculté:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="lineEdit_code_faculte">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="placeholderText">
+              <string>Code unique pour la faculté</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="layout_nbEtudiants_faculte">
+           <item>
+            <widget class="QLabel" name="label_nbEtudiants_faculte">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>25</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>Nombre d'étudiants:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="lineEditl_nbEtudiants_faculte">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="placeholderText">
+              <string>0</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_AjouterFaculte">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>45</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Ajouter Faculté</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </item>
+    </layout>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>900</width>
      <height>22</height>
     </rect>
    </property>
