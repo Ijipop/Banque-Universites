@@ -226,7 +226,7 @@ class Ui_MainWindow(object):
 
         self.pushButton_AjouterUniversite = QPushButton(self.layoutWidget3)
         self.pushButton_AjouterUniversite.setObjectName(u"pushButton_AjouterUniversite")
-        self.pushButton_AjouterUniversite.setEnabled(False)
+        # self.pushButton_AjouterUniversite.setEnabled(False)
         self.pushButton_AjouterUniversite.setMinimumSize(QSize(0, 45))
         self.pushButton_AjouterUniversite.setFont(font1)
 
@@ -323,7 +323,7 @@ class Ui_MainWindow(object):
 
         self.pushButton_AjouterFaculte = QPushButton(self.layoutWidget4)
         self.pushButton_AjouterFaculte.setObjectName(u"pushButton_AjouterFaculte")
-        self.pushButton_AjouterFaculte.setEnabled(False)
+        # self.pushButton_AjouterFaculte.setEnabled(False)
         self.pushButton_AjouterFaculte.setMinimumSize(QSize(0, 45))
         self.pushButton_AjouterFaculte.setFont(font1)
 
