@@ -126,7 +126,6 @@ class Application(QMainWindow):
             message = f"SÉLECTION ACTUELLE :\n"
             message += f"  Université : {universite_nom}\n"
             message += f"  Faculté : {faculte_nom}"
-            message += f"{faculte_nom}"
             
             QMessageBox.information(self, "Sélection Actuelle", message)
             self.ui.textEdit_resultats.append(f"Affichage : {universite_nom} > {faculte_nom}")
