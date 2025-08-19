@@ -41,6 +41,7 @@ class Application(QMainWindow):
             # Vider les ComboBox
             self.ui.comboBox_universites.clear()
             self.ui.comboBox_facultes.clear()
+            self.ui.comboBox_universite_faculte.clear()
             
             # Ajouter l'option par défaut
             defaut_item: str = "-- Choisir une université --"
@@ -137,19 +138,19 @@ class Application(QMainWindow):
             # Validations
             validation = ""
             if not nom_uni:
-                validation += "\nLe nom de l'université est obligatoire."
+                validation += "Le nom de l'université est obligatoire.\n"
 
             if not ville_uni:
-                validation += "\nLa ville de l'université est obligatoire."
+                validation += "La ville de l'université est obligatoire.\n"
             
             if not code_uni:
-                validation += "\nLe code est obligatoire."
+                validation += "Le code est obligatoire.\n"
             
             if code_uni and len(code_uni) > 10:
-                validation += "\nLe code doit faire maximum 10 caractères."
+                validation += "Le code doit faire maximum 10 caractères.\n"
             
             if annee and int(annee) < 1000:
-                validation += "\nL'année de fondation doit être supérieure à 1000."
+                validation += "L'année de fondation doit être supérieure à 1000.\n"
             
             if validation != "":
                 QMessageBox.warning(self, "Validation", validation)
@@ -157,7 +158,7 @@ class Application(QMainWindow):
             
             # Vérifier que l'université n'existe pas déjà
             universite_existant = session.query(Universite).filter(
-                (Universite.nom == nom_uni) | (Universite.code_universite == code_uni) | (Universite.ville == ville_uni) | (Universite.annee_fondation == annee)
+                (Universite.nom == nom_uni) | (Universite.code_universite == code_uni)
             ).first()
             
             if universite_existant:
@@ -192,28 +193,30 @@ class Application(QMainWindow):
             # Récupérer les données du formulaire
             nom_faculte = self.ui.lineEdit_nom_faculte.text().strip().title()
             code_faculte = self.ui.lineEdit_code_faculte.text().strip().upper()
-            nb_etudiants = int(self.ui.lineEditl_nbEtudiants_faculte.text().strip())
+            nb_etudiants = self.ui.lineEditl_nbEtudiants_faculte.text().strip()
             id_uni = self.ui.comboBox_universite_faculte.currentData()
             nom_uni = self.ui.comboBox_universite_faculte.currentText()
-            
-            # Validations
-            if not nom_faculte:
-                QMessageBox.warning(self, "Validation", "Le nom de la faculté est obligatoire!")
-                return
-            
-            if id_uni is None:
-                QMessageBox.warning(self, "Validation", "Veuillez sélectionner l'université parent!")
-                return
 
+            # Validations
+            validation = ""
+            if not nom_faculte:
+                validation += "Le nom de la faculté est obligatoire!\n"
+
+            if id_uni is None:
+                validation += "Veuillez sélectionner l'université parent!\n"
+            
             if not code_faculte:
-                QMessageBox.warning(self, "Validation", "Le code de la faculté est obligatoire!")
-                return
+                validation += "Le code de la faculté est obligatoire!\n"
             
             if not nb_etudiants:
                 nb_etudiants = 0
             
+            if validation != "":
+                QMessageBox.warning(self, "Validation", validation)
+                return
+            
             # Ajouter la faculté via la fonction de la base de données
-            nouvelle_faculte = ajouter_faculte(nom_faculte, code_faculte, nb_etudiants, id_uni)
+            nouvelle_faculte = ajouter_faculte(nom_faculte, code_faculte, int(nb_etudiants), id_uni)
             
             if nouvelle_faculte:
                 # Succès
