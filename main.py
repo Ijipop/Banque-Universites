@@ -12,6 +12,9 @@ class Application(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
+        # Initialiser la base de données
+        initialiser_donnees()
+
         # Connecter les signaux aux méthodes
         self.connecter_signaux()
 
@@ -41,6 +44,7 @@ class Application(QMainWindow):
             # Vider les ComboBox
             self.ui.comboBox_universites.clear()
             self.ui.comboBox_facultes.clear()
+            self.ui.comboBox_universite_faculte.clear()  # Ajout de cette ligne
             
             # Ajouter l'option par défaut
             defaut_item: str = "-- Choisir une université --"
