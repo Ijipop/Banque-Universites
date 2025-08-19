@@ -4,7 +4,7 @@ from PySide6.QtCore import Qt
 from interface import Ui_MainWindow
 from database import (session, Universite, Faculte,
                         obtenir_universites, obtenir_facultes_par_universite,
-                        ajouter_faculte, initialiser_donnees)
+                        ajouter_faculte, initialiser_donnees, afficher_toutes_les_donnees)
 
 class Application(QMainWindow):
     def __init__(self):
@@ -38,13 +38,14 @@ class Application(QMainWindow):
         self.ui.pushButton_VoirStats.clicked.connect(self.voir_statistiques)
         self.ui.pushButton_Demo.clicked.connect(self.lancer_demonstration)
         self.ui.pushButton_ViderMessages.clicked.connect(self.vider_messages)
+        self.ui.pushButton_Supprimer.clicked.connect(self.supprimer_selection)
 
     def charger_universites(self):
         try:
             # Vider les ComboBox
             self.ui.comboBox_universites.clear()
             self.ui.comboBox_facultes.clear()
-            self.ui.comboBox_universite_faculte.clear()  # Ajout de cette ligne
+            self.ui.comboBox_universite_faculte.clear()
             
             # Ajouter l'option par défaut
             defaut_item: str = "-- Choisir une université --"
@@ -136,28 +137,32 @@ class Application(QMainWindow):
             nom_uni = self.ui.lineEdit_nom_universite.text().strip().title()
             ville_uni = self.ui.lineEdit_ville_universite.text().strip().title()
             code_uni = self.ui.lineEdit_code_universite.text().strip().upper()
-            annee = int(self.ui.lineEdit_annee_universite.text().strip())
+            annee = self.ui.lineEdit_annee_universite.text().strip()
             
             # Validations
+            validation = ""
             if not nom_uni:
-                QMessageBox.warning(self, "Validation", "Le nom de l'université est obligatoire!")
-                return
+                validation += "Le nom de l'université est obligatoire.\n"
 
             if not ville_uni:
-                QMessageBox.warning(self, "Validation", "La ville de l'université est obligatoire!")
-                return
+                validation += "La ville de l'université est obligatoire.\n"
             
-            if not code_uni or len(code_uni) > 10:
-                QMessageBox.warning(self, "Validation", "Le code doit faire maximum 10 caractères!")
-                return
+            if not code_uni:
+                validation += "Le code est obligatoire.\n"
             
-            if annee and annee < 1000:
-                QMessageBox.warning(self, "Validation", "L'année de fondation doit être supérieure à 1000!")
+            if code_uni and len(code_uni) > 10:
+                validation += "Le code doit faire maximum 10 caractères.\n"
+            
+            if annee and int(annee) < 1000:
+                validation += "L'année de fondation doit être supérieure à 1000.\n"
+            
+            if validation != "":
+                QMessageBox.warning(self, "Validation", validation)
                 return
             
             # Vérifier que l'université n'existe pas déjà
             universite_existant = session.query(Universite).filter(
-                (Universite.nom == nom_uni) | (Universite.code_universite == code_uni) | (Universite.ville == ville_uni) | (Universite.annee_fondation == annee)
+                (Universite.nom == nom_uni) | (Universite.code_universite == code_uni)
             ).first()
             
             if universite_existant:
@@ -192,28 +197,39 @@ class Application(QMainWindow):
             # Récupérer les données du formulaire
             nom_faculte = self.ui.lineEdit_nom_faculte.text().strip().title()
             code_faculte = self.ui.lineEdit_code_faculte.text().strip().upper()
-            nb_etudiants = int(self.ui.lineEditl_nbEtudiants_faculte.text().strip())
+            nb_etudiants = self.ui.lineEditl_nbEtudiants_faculte.text().strip()
             id_uni = self.ui.comboBox_universite_faculte.currentData()
             nom_uni = self.ui.comboBox_universite_faculte.currentText()
-            
-            # Validations
-            if not nom_faculte:
-                QMessageBox.warning(self, "Validation", "Le nom de la faculté est obligatoire!")
-                return
-            
-            if id_uni is None:
-                QMessageBox.warning(self, "Validation", "Veuillez sélectionner l'université parent!")
-                return
 
+            # Validations
+            validation = ""
+            if not nom_faculte:
+                validation += "Le nom de la faculté est obligatoire!\n"
+
+            if id_uni is None:
+                validation += "Veuillez sélectionner l'université parent!\n"
+            
             if not code_faculte:
-                QMessageBox.warning(self, "Validation", "Le code de la faculté est obligatoire!")
-                return
+                validation += "Le code de la faculté est obligatoire!\n"
             
             if not nb_etudiants:
                 nb_etudiants = 0
             
+            if validation != "":
+                QMessageBox.warning(self, "Validation", validation)
+                return
+            
+            # # Vérifier que la faculté n'existe pas déjà
+            # faculte_existant = session.query(Faculte).filter(
+            #     (Faculte.nom == nom_faculte) | (Faculte.code_faculte == code_faculte)
+            # ).first()
+            
+            # if faculte_existant:
+            #     QMessageBox.warning(self, "Erreur", f"Cette faculté existe déjà!")
+            #     return
+            
             # Ajouter la faculté via la fonction de la base de données
-            nouvelle_faculte = ajouter_faculte(nom_faculte, code_faculte, nb_etudiants, id_uni)
+            nouvelle_faculte = ajouter_faculte(nom_faculte, code_faculte, int(nb_etudiants), id_uni)
             
             if nouvelle_faculte:
                 # Succès
@@ -258,6 +274,8 @@ class Application(QMainWindow):
             QMessageBox.information(self, "Statistiques", message)
             
             self.ui.textEdit_resultats.append(f"Statistiques : {nb_uni} université, {nb_facul} facultés")
+
+            afficher_toutes_les_donnees()
             
         except Exception as e:
             QMessageBox.critical(self, "Erreur", f"Erreur lors du calcul des statistiques : {e}")
@@ -292,8 +310,78 @@ class Application(QMainWindow):
         self.ui.textEdit_resultats.clear()
         # self.ui.textEdit_resultats.append("Messages vidés.")
 
+    def valider_supprimer(self, nom):
+        answer= QMessageBox.question(
+            self,
+            'Supprimer',
+            f'Voulez-vous vraiment supprimer {nom}?',
+            QMessageBox.StandardButton.Yes |
+            QMessageBox.StandardButton.No
+        )
+
+        if answer == QMessageBox.StandardButton.Yes:
+            return True
+        elif answer == QMessageBox.StandardButton.No:
+            return False
+
+    def supprimer_selection(self):
+        universite_nom = self.ui.comboBox_universites.currentText()
+        faculte_nom = self.ui.comboBox_facultes.currentText()
+
+        # Va supprimer la faculte selection dans le combobox
+        if self.ui.comboBox_universites.currentData() and self.ui.comboBox_facultes.currentData():
+            validation = self.valider_supprimer(f"la faculté \n'{faculte_nom}' \nde l'université {universite_nom}")
+
+            if validation:
+                faculte = session.query(Faculte).get(self.ui.comboBox_facultes.currentData())
+
+                # Supprime la faculte
+                session.delete(faculte)
+                session.commit()
+
+                # Succès
+                self.ui.textEdit_resultats.append(f"FACULTÉ SURPRIMÉE : {faculte_nom}")
+
+                QMessageBox.information(
+                        self, 
+                        "Succès", 
+                        f"Faculté '{faculte_nom}' supprimée avec succès!"
+                    )
+
+                # Recharger les listes
+                self.charger_universites()
+
+        # Va supprimer l'universite dans le combobox (et pas de faculte selectionnee)
+        elif self.ui.comboBox_universites.currentData():
+            validation = self.valider_supprimer(f"l'université \n'{universite_nom}'")
+
+            if validation:
+                universite = session.query(Universite).get(self.ui.comboBox_universites.currentData())
+
+                # Supprimer l'universite
+                session.delete(universite)
+                session.commit()
+
+                # Succès
+                self.ui.textEdit_resultats.append(f"UNIVERSITÉ SURPRIMÉE : {universite_nom}")
+
+                QMessageBox.information(
+                        self, 
+                        "Succès", 
+                        f"Université '{universite_nom}' supprimée avec succès!"
+                    )
+
+                # Recharger les listes
+                self.charger_universites()
+
+        else:
+            QMessageBox.critical(self, "Erreur", f"Rien de selectionner\nVeuillez utiliser les dropboxs du haut.")
+
 if __name__ == "__main__":
     app = QApplication(sys.argv)
+
+    # Initialiser les données si nécessaire
+    initialiser_donnees()
     
     window = Application()
     window.show()
