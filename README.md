@@ -16,3 +16,17 @@ Python `3.9.13`
 pip install sqlalchemy
 pip install pyside6
 ```
+
+### 1. Installation Rapide
+```bash
+# Créer l'environnement virtuel
+python -m venv .venv
+
+# Activer l'environnement
+.\.venv\Scripts\activate  # Windows
+# ou
+source .venv/bin/activate  # Linux/Mac
+
+# Installer les dépendances
+pip install -r requirements.txt
+```

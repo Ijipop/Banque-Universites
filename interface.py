@@ -106,6 +106,7 @@ class Ui_MainWindow(object):
         self.layout_resultats.setContentsMargins(0, 0, 0, 0)
         self.layout_buttons = QHBoxLayout()
         self.layout_buttons.setObjectName(u"layout_buttons")
+
         self.pushButton_VoirStats = QPushButton(self.layoutWidget1)
         self.pushButton_VoirStats.setObjectName(u"pushButton_VoirStats")
         self.pushButton_VoirStats.setFont(font1)
@@ -117,6 +118,13 @@ class Ui_MainWindow(object):
         self.pushButton_Demo.setFont(font1)
 
         self.layout_buttons.addWidget(self.pushButton_Demo)
+
+        self.pushButton_Supprimer = QPushButton(self.layoutWidget1)
+        self.pushButton_Supprimer.setObjectName(u"pushButton_Supprimer")
+        self.pushButton_Supprimer.setMaximumSize(QSize(75, 50))
+        self.pushButton_Supprimer.setFont(font1)
+
+        self.layout_buttons.addWidget(self.pushButton_Supprimer)
 
 
         self.layout_resultats.addLayout(self.layout_buttons)
@@ -357,6 +365,7 @@ class Ui_MainWindow(object):
         self.groupe_resultats.setTitle(QCoreApplication.translate("MainWindow", u"Informations et Messages", None))
         self.pushButton_VoirStats.setText(QCoreApplication.translate("MainWindow", u"Voir Statistiques", None))
         self.pushButton_Demo.setText(QCoreApplication.translate("MainWindow", u"D\u00e9monstration", None))
+        self.pushButton_Supprimer.setText(QCoreApplication.translate("MainWindow", u"Supprimer", None))
         self.pushButton_ViderMessages.setText(QCoreApplication.translate("MainWindow", u"Vider les Messages", None))
         self.groupe_ajout_universite.setTitle(QCoreApplication.translate("MainWindow", u"Ajout une Universit\u00e9", None))
         self.label_nom_universite.setText(QCoreApplication.translate("MainWindow", u"Nom de l'universit\u00e9:", None))
