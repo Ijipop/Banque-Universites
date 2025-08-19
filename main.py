@@ -132,23 +132,27 @@ class Application(QMainWindow):
             nom_uni = self.ui.lineEdit_nom_universite.text().strip().title()
             ville_uni = self.ui.lineEdit_ville_universite.text().strip().title()
             code_uni = self.ui.lineEdit_code_universite.text().strip().upper()
-            annee = int(self.ui.lineEdit_annee_universite.text().strip())
+            annee = self.ui.lineEdit_annee_universite.text().strip()
             
             # Validations
+            validation = ""
             if not nom_uni:
-                QMessageBox.warning(self, "Validation", "Le nom de l'université est obligatoire!")
-                return
+                validation += "\nLe nom de l'université est obligatoire."
 
             if not ville_uni:
-                QMessageBox.warning(self, "Validation", "La ville de l'université est obligatoire!")
-                return
+                validation += "\nLa ville de l'université est obligatoire."
             
-            if not code_uni or len(code_uni) > 10:
-                QMessageBox.warning(self, "Validation", "Le code doit faire maximum 10 caractères!")
-                return
+            if not code_uni:
+                validation += "\nLe code est obligatoire."
             
-            if annee and annee < 1000:
-                QMessageBox.warning(self, "Validation", "L'année de fondation doit être supérieure à 1000!")
+            if code_uni and len(code_uni) > 10:
+                validation += "\nLe code doit faire maximum 10 caractères."
+            
+            if annee and int(annee) < 1000:
+                validation += "\nL'année de fondation doit être supérieure à 1000."
+            
+            if validation != "":
+                QMessageBox.warning(self, "Validation", validation)
                 return
             
             # Vérifier que l'université n'existe pas déjà

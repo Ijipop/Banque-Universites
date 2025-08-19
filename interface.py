@@ -364,7 +364,7 @@ class Ui_MainWindow(object):
         self.label_ville_universite.setText(QCoreApplication.translate("MainWindow", u"Ville de l'universit\u00e9:", None))
         self.lineEdit_ville_universite.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Ville o\u00f9 se trouve l'universit\u00e9", None))
         self.label_code_universite.setText(QCoreApplication.translate("MainWindow", u"Code de l'universit\u00e9:", None))
-        self.lineEdit_code_universite.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Code unique pour l'universit\u00e9", None))
+        self.lineEdit_code_universite.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Code unique pour l'universit\u00e9 (maximum 10 caractères)", None))
         self.label_annee_universite.setText(QCoreApplication.translate("MainWindow", u"Ann\u00e9e de fondation:", None))
         self.lineEdit_annee_universite.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Ann\u00e9e de fondation (optionnel)", None))
         self.pushButton_AjouterUniversite.setText(QCoreApplication.translate("MainWindow", u"Ajouter Universit\u00e9", None))
