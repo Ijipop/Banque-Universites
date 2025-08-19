@@ -12,6 +12,9 @@ class Application(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
+        # Initialiser la base de données
+        initialiser_donnees()
+
         # Connecter les signaux aux méthodes
         self.connecter_signaux()
 
