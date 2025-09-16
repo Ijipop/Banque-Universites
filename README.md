@@ -105,4 +105,5 @@ del universites_facultes.db  # Windows
 
 
 Initialement créé dans le cadre d'un cours de programmation
+
 **Créé par Natacha Meyer & Jean-François Lefebvre**
