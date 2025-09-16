@@ -1,4 +1,10 @@
 import sys
+import os
+# Ensure we're using the virtual environment
+venv_site_packages = os.path.join(os.path.dirname(__file__), 'env', 'Lib', 'site-packages')
+if venv_site_packages not in sys.path:
+    sys.path.insert(0, venv_site_packages)
+
 from PySide6.QtWidgets import QApplication, QMainWindow, QMessageBox
 from PySide6.QtCore import Qt
 from interface import Ui_MainWindow
