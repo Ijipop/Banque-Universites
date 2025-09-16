@@ -102,3 +102,7 @@ del universites_facultes.db  # Windows
 - La base de données SQLite est créée automatiquement au premier lancement
 - Les données de démonstration sont ajoutées automatiquement
 - L'application utilise des contraintes de clés étrangères pour maintenir l'intégrité des données
+
+
+Initialement créé dans le cadre d'un cours de programmation
+**Créé par Natacha Meyer & Jean-François Lefebvre**
